@@ -1,0 +1,67 @@
+html {
+    background-color: #58148E;
+}
+ 
+.header {
+  padding: 40px;
+  text-align: center;
+  background: #EABFFA;
+  color: black
+}
+
+.header h1 {
+  font-size: 32px;
+} 
+
+.navbar {
+  overflow: hidden; 
+  background-color: #58148E; /* Dark purple */
+}
+
+/* Styles the navigation bar links */
+.navbar a {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Changes color to lighter purple when hovered over */
+.navbar a:hover {
+  background-color: #CB5DF1;
+  color: black;
+}
+
+/* Makes width and height account for border and padding */
+* {
+  box-sizing: border-box;
+}
+
+/* if an item is too long for the row its on, it auto goes to the next row */ 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main {
+  flex: 80%; /* it should take up 80% of the row */
+  background-color: #F7EBFD; /* light purple */
+  padding: 20px;
+}
+
+.container {
+ display: grid;
+ align-items: center; 
+ grid-template-columns: 1fr 1fr;
+ column-gap: 5px;
+}
+
+.footer {
+  padding: 2px; 
+  padding-left:20px;
+  text-align: left; 
+  background: #461873; /* dark purple */
+  font-size: 16px;
+}
