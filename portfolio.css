@@ -13,6 +13,16 @@ html {
   font-size: 40px;
 } 
 
+p {
+  font-size: 20px;
+  text-align: left; 
+}
+
+h3 {
+  font-size: 28px;
+  text-align: left;
+}
+
 .navbar {
   overflow: hidden; 
   background-color: #58148E; /* Dark purple */
@@ -45,10 +55,7 @@ a {
   color: black;
 }
 
-/* Makes width and height account for border and padding */
-* {
-  box-sizing: border-box;
-}
+
 
 /* if an item is too long for the row its on, it auto goes to the next row */ 
 .row {
