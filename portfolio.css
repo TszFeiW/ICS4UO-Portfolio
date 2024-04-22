@@ -1,11 +1,11 @@
 html {
-    background-color: #58148E;
+  background-color: #58148E; /* dark purple */
 }
- 
+
 .header {
   padding: 40px;
   text-align: center;
-  background: #EABFFA;
+  background: #EABFFA; /* pinkish purple*/
   color: black
 }
 
@@ -19,8 +19,16 @@ p {
 }
 
 h3 {
-  font-size: 28px;
+  font-size: 24px;
   text-align: left;
+}
+
+/* style for single lines of example code */ 
+code {
+  color: #58148E;
+  padding-left: 51px;
+  font-size: 20px;
+  font-family: Lustria, Hind Madurai, sans-serif;
 }
 
 .navbar {
@@ -28,15 +36,25 @@ h3 {
   background-color: #58148E; /* Dark purple */
 }
 
-/* Styles the navigation bar links */
+/* styles the navigation bar links */
 .navbar a {
   float: right;
   display: block;
-  color: white;
+  color: #F7EBFD; /* light purple */
   text-align: center;
   padding: 16px 24px;
 }
 
+/* for collapsing sections of text */ 
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+  font-size: 2em;
+}
+
+
+/* puts a box around table of contents for tutorials */ 
 .toc {
  border: 4px solid black;
  margin: 0px;
@@ -44,18 +62,17 @@ h3 {
  width: 300px;
 }
 
+/* styles the links in table of contents for tutorials */
 a { 
   text-decoration: none; 
   color: #58148E;
 } 
 
-/* Changes color to lighter purple when hovered over */
+/* changes color to lighter purple when hovered over */
 .navbar a:hover {
   background-color: #CB5DF1;
   color: black;
 }
-
-
 
 /* if an item is too long for the row its on, it auto goes to the next row */ 
 .row {
