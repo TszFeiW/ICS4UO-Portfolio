@@ -49,21 +49,50 @@ there is only 1 copy of it. This is useful when the variable is a common propert
 in a university. </p>
   <p> <a href="top"> Return to top </a> </p>
   <br>
-  <h1 id="2"> Unit 2 - Arrays </h1>
-  <p> </p> 
-  <p> <a href="top"> Return to top </a> </p>
+  <details>
+  <summary id="2"> Unit 2 - Arrays </summary>
+  <h3> Introduction to Arrays </h3>
+  <p> Arrays are consecutive blocks of memory that store the same type of data. 
+For example, a int array of size 10 holds up to 10 integers. The value(s) in one location in memory  within the array is called an element. The position of the element within the array is called the index with the first element being 0. Unlike Strings, the length of an array is not a callable method. Instead, it is a public field in the array object that can be read with <span style="color:#58148E"> array.length</span>. Again, unlike Strings, the length of an array cannot be changed after initialization. </p> 
+  <p> Arrays are useful when storing a plural number of related values. Each value no longer requires a unique variable, but they can be refered to by their index in the one array. This saves space in the code, increases readability, and increases ease of using and manipulating the values within the array. In an array, if you wanted to apply an operation on every 1st, 2nd, 3rd, etc element, you could iterate through the array applying that operation rather than needing to write a line of code for every element being used if they were separate variables. Finally, for ordered arrays, having elements available by index allows for easier access to the desired data and sorting elements. </p>
+  <h3> Coding with Arrays </h3> 
+  <p> You can initialize an array 'Arr' of data type 'Type' and size 'size' with the statement: </p>
+  <code> Type[] arr = new Type[size]; </code>
+  <p> You can also initialize the array in the same line by stating the contents inside curly braces and separated by commas. Note that if you choose to initialize an array this way, the number of values within the curly braces is the length of the array. No more values can be added; they can only change elements currently in the array. For example, if you want to create an array of integers from 1 to 5, you could declare and initialize it in the same line and the size of the array is automatically set to 5: </p> 
+  <code> int[] arr = {1, 2, 3, 4, 5}; </code>
+  <p> It is also possible to declare an array without initializing it. For example, declaring an string arr with the code below: </p> 
+  <code> String[] lines; </code> 
+  <p> Note that if you initialize the array without giving the elements in curly braces, all elements are initialized to a default value. This is 0 for numbers, false for booleans, and null for objects. If the array type is an object, the array holds references to objects which cannot be used until they are initialized.  </p>
+  <p> An index is referred to in square brackets after the array name. The element at index n in array 'arr' can be accessed by writing <span style="color:#58148E"> arr[n] </span>. 
+
+The index can be any int variable within the length of the array. This means <span style="color:#58148E"> arr[n-2] </span> and <span style="color:#58148E"> arr[(int)(Math.random()*10)+1] </span> are both valid assuming they are not out of bounds.      </p> 
+  <h3> Arrays and Methods </h3> 
+  <p> Arrays can be passed to methods similarly to variables of ints, doubles, etc. However, when passing an array to a method you are passing a reference to its location in memory rather than a copy of its values. This means the elements of the array can be changed within the method, unlike with primitive data types. For example, the following code shows a method that takes an array and "somethingsomething": </p> 
+  <p> Methods can also have an array as their return type. Like passing arrays to methods, returning an array returns a reference to its location in memory. An example of a method that returns an array is blahblahblah . The code for this is shown below: </p>
+  <h3> 2D Arrays </h3> 
+  <p> A 2 dimensional array is an array in which each element is a 1D array. It has two indices, one for rows and one for columns. Each row is a different section of consecutive locations in memory. They are commonly used to represent tables, the coordinate plan, tiled game boards such as in chess, and more. You can write 2D arrays similarly to writing a one dimensional one– just with two square brackets for each dimension: </p>
+  <code> int[][] chessboard = new int[64][64]; </code>
+  <p> To initialize a 2D array with the values inside, separate the elements in different rows into different sets of curly braces and envelop all the rows between 2 curly braces. For example, the code below initializes a grid of tic-tac-toe where X wins: </p> 
+  <code> char[][] tictactoe = {{O, X, O}, {X, X, O}, {O, X, X}}; </code> 
+  <p> The length of a 2D array 'arr' (the number of arrays / rows it contains) is <span style="color:#58148E"> arr.length</span>. The length of the nth row, aka the number of columns in that row, in a 2D array is <span style="color:#58148E"> arr[n].length</span>. Note that the length of each row does not have to be constant. An array in which different rows have different lengths is a "ragged" array. You can do this by initializing each row separately or by using curly braces method to initialize the array. For example, the code below initializes a ragged array composed of the heights of flowers in each row of a garden: </p>
+  <code> double[][] garden = {{1.0, 1.5, 2.0}, {0.5, 1.0}, {1.0, 2.5, 3.0, 1.5}}; </code> 
+  <h3> Common mistakes </h3> 
+  <p> If trying to access an element whose index is negative or greater than 'length of the array - 1', Java interpreter will throw the <span style="color:#58148E"> ArrayIndexOutOfBoundsException </span> at run time. This may occur when iterating through an array without being careful of the index bounds. Another common mistake is attempting to access an object element that has not been initialized. Doing this will result in a <span style="color:#58148E"> NullPointerException</span>, as the value being accessed is null. Some people may also forget that array indexes start at 0 and not 1. This means the first element is index 0, the second is index 1, and so on until the nth element is index n-1. Finally, it's important to remember that the length of an array is an attribute that is read with <span style="color:#58148E"> array.length </span> and not the <span style="color:#58148E"> array.length() </span> used for Strings. </p> 
+
+  <p> <a href="tutorial.html"> Return to top </a> </p>
+  </details>
   <br>
   <h1 id="3"> Unit 3 - ArraysLists </h1>
   <p> </p> 
-  <p> <a href="top"> Return to top </a> </p>
+  <p> <a href="tutorial.html"> Return to top </a> </p>
   <br>
   <h1 id="4"> Unit 4 - Search and Sort </h1>
   <p> </p> 
-  <p> <a href="top"> Return to top </a> </p>
+  <p> <a href="tutorial.html"> Return to top </a> </p>
   <br>
   <h1 id="5"> Unit 5 - Recursion </h1>
   <p> </p> 
-  <p> <a href="top"> Return to top </a> </p>
+  <p> <a href="tutorial.html"> Return to top </a> </p>
 
 </div>
 </body>
