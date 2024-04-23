@@ -2,6 +2,7 @@
 <html lang="en">
 <div class="navbar">
   <a href="sources.html">Sources</a>
+  <a href="extra learning.html"> Extra Learning </a>
   <a href="tutorial.html">Tutorials</a>
   <a href="about.html">About me</a>
   <a href="portfolio.html">Home</a>
@@ -34,26 +35,31 @@ body {
     <p> <a href="#4"> 4. Unit 4 - Search and Sort </a> </p>
     <p> <a href="#5"> 5. Unit 5 - Recursion </a> </p>
   </div>
-
-  <h1 id="1"> Unit 1 - OOP </h1> 
-  <h3> Objects and Classes </h3>
-  <p> A software object is a location in memory that corresponds to a value. 
-They can have methods, which allows them to perform actions when run. </p> 
-  <p> A Java class is a blueprint for an object. Java comes with library classes 
-such as Java.lang.math, but classes can also be created by the user. </p>
-<p> Running the Java application creates objects of classes and allows for use of the methods within the objects. </p>
-  <p> For example, one dolphin ice mold class could be used as the 
-template to create many dolphin ice cube objects. </p>
-  <p> A static characteristic in a class is a variable that is shared across all objects of the class; 
-there is only 1 copy of it. This is useful when the variable is a common property, for example the maximum class size
-in a university. </p>
-  <p> <a href="top"> Return to top </a> </p>
   <br>
+
+  <details>
+  <summary id="1"> Unit 1 - OOP </summary> 
+  <h3> Objects and Classes </h3>
+  <p> A software object is a location in memory that corresponds to a value. Similarly to a real object with attributes and behaviors, software objects can have instance variables (attributes) and methods (behaviors). For example, a plane object can have attributes such as size, capacity, and brand. It can have behaviors such as liftOff, setDown, and cruise. These can also be the instane variables and methods of a software plane object. </p> 
+  <p> A Java class is a blueprint for an object. Java comes with library classes such as Java.lang.math, but classes can also be created by the user. </p>
+<p> Running the Java application creates objects of classes and allows for use of the methods within the objects. For example, one dolphin ice mold class could be used as the template to create many dolphin ice cube objects. </p>
+  <p> A static characteristic in a class is a variable that is shared across all objects of the class; there is only 1 copy of it. This is useful when the variable is a common property, for example the maximum class size in a university. </p>
+  <h3> Common Methods </h3> 
+  <h3> Inheritance and Polymorphism </h3>
+  <h3> Abstract classes and Interfaces </h3>
+  <h3> Project Application </h3>
+  <h3> Common Mistakes </h3>
+  <p> <a href="top"> Return to top </a> </p>
+  </details>
+
+  <br>
+
   <details>
   <summary id="2"> Unit 2 - Arrays </summary>
   <h3> Introduction to Arrays </h3>
   <p> Arrays are consecutive blocks of memory that store the same type of data. 
 For example, a int array of size 10 holds up to 10 integers. The value(s) in one location in memory  within the array is called an element. The position of the element within the array is called the index with the first element being 0. Unlike Strings, the length of an array is not a callable method. Instead, it is a public field in the array object that can be read with <span style="color:#58148E"> array.length</span>. Again, unlike Strings, the length of an array cannot be changed after initialization. </p> 
+  <h3> Analysis </h3>
   <p> Arrays are useful when storing a plural number of related values. Each value no longer requires a unique variable, but they can be refered to by their index in the one array. This saves space in the code, increases readability, and increases ease of using and manipulating the values within the array. In an array, if you wanted to apply an operation on every 1st, 2nd, 3rd, etc element, you could iterate through the array applying that operation rather than needing to write a line of code for every element being used if they were separate variables. Finally, for ordered arrays, having elements available by index allows for easier access to the desired data and sorting elements. </p>
   <h3> Coding with Arrays </h3> 
   <p> You can initialize an array 'Arr' of data type 'Type' and size 'size' with the statement: </p>
@@ -64,11 +70,10 @@ For example, a int array of size 10 holds up to 10 integers. The value(s) in one
   <code> String[] lines; </code> 
   <p> Note that if you initialize the array without giving the elements in curly braces, all elements are initialized to a default value. This is 0 for numbers, false for booleans, and null for objects. If the array type is an object, the array holds references to objects which cannot be used until they are initialized.  </p>
   <p> An index is referred to in square brackets after the array name. The element at index n in array 'arr' can be accessed by writing <span style="color:#58148E"> arr[n] </span>. 
-
 The index can be any int variable within the length of the array. This means <span style="color:#58148E"> arr[n-2] </span> and <span style="color:#58148E"> arr[(int)(Math.random()*10)+1] </span> are both valid assuming they are not out of bounds.      </p> 
   <h3> Arrays and Methods </h3> 
-  <p> Arrays can be passed to methods similarly to variables of ints, doubles, etc. However, when passing an array to a method you are passing a reference to its location in memory rather than a copy of its values. This means the elements of the array can be changed within the method, unlike with primitive data types. For example, the following code shows a method that takes an array and "somethingsomething": </p> 
-  <p> Methods can also have an array as their return type. Like passing arrays to methods, returning an array returns a reference to its location in memory. An example of a method that returns an array is blahblahblah . The code for this is shown below: </p>
+  <p> Arrays can be passed to methods similarly to variables of ints, doubles, etc. However, when passing an array to a method you are passing a reference to its location in memory rather than a copy of its values. This means the elements of the array can be changed within the method, unlike with primitive data types. </p> 
+  <p> Methods can also have an array as their return type. Like passing arrays to methods, returning an array returns a reference to its location in memory. </p>
   <h3> 2D Arrays </h3> 
   <p> A 2 dimensional array is an array in which each element is a 1D array. It has two indices, one for rows and one for columns. Each row is a different section of consecutive locations in memory. They are commonly used to represent tables, the coordinate plan, tiled game boards such as in chess, and more. You can write 2D arrays similarly to writing a one dimensional one– just with two square brackets for each dimension: </p>
   <code> int[][] chessboard = new int[64][64]; </code>
@@ -76,15 +81,40 @@ The index can be any int variable within the length of the array. This means <sp
   <code> char[][] tictactoe = {{O, X, O}, {X, X, O}, {O, X, X}}; </code> 
   <p> The length of a 2D array 'arr' (the number of arrays / rows it contains) is <span style="color:#58148E"> arr.length</span>. The length of the nth row, aka the number of columns in that row, in a 2D array is <span style="color:#58148E"> arr[n].length</span>. Note that the length of each row does not have to be constant. An array in which different rows have different lengths is a "ragged" array. You can do this by initializing each row separately or by using curly braces method to initialize the array. For example, the code below initializes a ragged array composed of the heights of flowers in each row of a garden: </p>
   <code> double[][] garden = {{1.0, 1.5, 2.0}, {0.5, 1.0}, {1.0, 2.5, 3.0, 1.5}}; </code> 
+  <h3> Project application </h3> 
+  <p> balhlbahblah </p>
   <h3> Common mistakes </h3> 
   <p> If trying to access an element whose index is negative or greater than 'length of the array - 1', Java interpreter will throw the <span style="color:#58148E"> ArrayIndexOutOfBoundsException </span> at run time. This may occur when iterating through an array without being careful of the index bounds. Another common mistake is attempting to access an object element that has not been initialized. Doing this will result in a <span style="color:#58148E"> NullPointerException</span>, as the value being accessed is null. Some people may also forget that array indexes start at 0 and not 1. This means the first element is index 0, the second is index 1, and so on until the nth element is index n-1. Finally, it's important to remember that the length of an array is an attribute that is read with <span style="color:#58148E"> array.length </span> and not the <span style="color:#58148E"> array.length() </span> used for Strings. </p> 
 
   <p> <a href="tutorial.html"> Return to top </a> </p>
   </details>
+
   <br>
-  <h1 id="3"> Unit 3 - ArraysLists </h1>
-  <p> </p> 
+
+  <details>
+  <summary id="3"> Unit 3 - ArraysLists </summary>
+  <h3> Introduction and using ArrayLists </h3>
+  <p> ArrayLists are Objects that can be important using the java.util package. They are similar to arrays, with a key difference being their sizes are dynamic. This means elements can be added or removed from arraylists as necessary. Arraylists, similarly to arrays, store only one datatype. This is written in angled brackets in the declaration. </p> 
+  <p> Additionally, they can only hold objects– not primitive data types. If using primitive data types like ints and doubles, either use a regular array or convert them into Integer or Double which are objects. Conversion from the primitive data type to an object is automatic for elements being inserted into the arraylist and this is known as autoboxing.  The code to declare an arraylist of type 'E' and name 'arr' is: </p>
+  <code> ArrayList<E> arr = new ArrayList<E>(); </code>
+  <p> The capacity of the array is the length of the array internally storing the values inside the arraylist. By default this is 10, but it can also be set during the creation of an arraylist by stating the capacity between the parenthesis: </p>
+  <code> ArrayList<E> arr = new ArrayList <E>(int capacity); </code>
+  <p> After initializing the array, common arraylist methods that can be used on 'arr' include: </p>
+  <img src="common arraylist methods.png" alt="Common arraylist methods">
+  <p> Note that arraylists have a default toString() method that prints the contents of the arraylist. Additionally, when the capacity has run out of space it is automatically doubled by allocating a larger array and copying the values. </p>
+  <h3> Analysis </h3>
+  <p> ArrayLists have the advantage over arrays in any scenario where you have a fluctuating number of elements. Having a dynamic size allows for greater flexibility and is useful in, for example, storing a shelf of books at a library where books are borrowed and returned. </p>
+  <p> Arraylists also offer convenience in the form of built-in higher level operations such as searching, removing, and adding elements. As part of the Java Collections Framework, arraylists have access to a wide variety of methods that increase their functionality (e.g, .contains). These factors make arraylists good for ease of use. </p>   
+  <p> On the other hand, arraylists are usually a less efficient option than arrays, especially for giving direct access to an element. This is because arrays have a fixed size and allow for direct memory allocation, whereas arraylists require checking size, resizing, and datacopying when the capacity is reached. Arraylists can also only be single dimensional. For any grid, table, or other multi dimensional data set, arraylists cannot be used. </p> 
+  <h3> Project Application </h3> 
+  <p> description stuff </p>
+  <h3> Common Mistakes </h3> 
+  <p> It's important to remember to import <span style="color:#58148E"> java.util.* </span> in a class that uses arraylists, otherwise they cannot be used. </p>
+  <p> The <span style="color:#58148E"> IndexOutOfBoundsException </span> will be thrown if you try to access or add an element at an index that is either negative or larger than the last index of the arraylist. </p>
+  <p> Note that removing an element x from an arraylist reduces the size of the array and causes all elements to the right of x to shift left. This means regular implementation of a for loop to remove elements from an arraylist will not work; if multiple consecutive elements need to be removed, only every other will be removed as the next element will take the index of the element that was just removed and go unnoticed. As the size after the removals is less than the size of the array in at the start, the for loop will also go out of bounds. </p>
   <p> <a href="tutorial.html"> Return to top </a> </p>
+  </details>
+
   <br>
   <h1 id="4"> Unit 4 - Search and Sort </h1>
   <p> </p> 
