@@ -116,9 +116,37 @@ The index can be any int variable within the length of the array. This means <sp
   </details>
 
   <br>
-  <h1 id="4"> Unit 4 - Search and Sort </h1>
-  <p> </p> 
+  <details>
+  <summary id="4"> Unit 4 - Search and Sort </summary>
+  <h3> Searching Basics </h3>
+  <p> Searching is the act of going through a set of data to find a specific one. The most basic form of searching is 
+  the sequential search. This iterates through the list, comparing each value to the target value. For example, the method
+below takes an array and target value of object type E and performs sequential search: </p> 
+  <img src="sequential search.png" alt="method for sequential search" width = 500px length = 160px> 
+  <p> The average number of comparisons needed if the target value is in the arary, is half of the array length. 
+With an array of length n, n comparisons would be needed to show the value is not in the array. This means that
+sequential search is in O(n); the time complexity of the algorithm increases linearly with the size of the
+ input data. </p>
+  <p> A more efficient algorithm is the binary search. This search assumes a sorted array n and requires active tracking 
+of the max and min of the current range. This range starts with the whole array with max being the last index and min being
+index 0. Every iteration, the middle element of the search range ((max+min)/2) is compared to the target element.
+If the target value is greater, the minimum is set to the index one greater than the current middle, the middle is recalculated, 
+and it tries again. If the target value is less, the maximum is set to the index one less than the current middle, the 
+middle is recalculated, and it tries again. This continues until the target equals the middle value. Binary search
+is an O(log n) algorithm. This means that run time does not significantly increase with large increases in input.
+This makes sense logically; with each iteration, half of the current search range is removed from consideration. </p>
+  <h3> Sorting Basics </h3> 
+  <p> The act of sorting is rearranging the data in a list by some criteria (e.g, numerically ascending, alphabetically, 
+  numerically descending, etc).
+  <h3> Analysis </h3> 
+  <p> Searching and sorting is extremely useful in many scenarios. For example, sorting search results by relevance, sorting social media posts by most likes, 
+sorting purchases by date, and more. One of the most basic sorting algorithms is selection sort. This checks for the maximum value among the first 
+n elements, where n starts as the length of the array - 1. It then swaps this largest value with the nth element; the largest element is moved to the end of the array. 
+It continues this, decrementing n by 1 every time, until the array has been sorted. 
+  <h3> Project Application </h3> 
+  <h3> Common Mistakes </h3> 
   <p> <a href="tutorial.html"> Return to top </a> </p>
+  </details>
   <br>
   <h1 id="5"> Unit 5 - Recursion </h1>
   <p> </p> 
