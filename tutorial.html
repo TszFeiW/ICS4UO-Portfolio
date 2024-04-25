@@ -122,8 +122,8 @@ The index can be any int variable within the length of the array. This means <sp
   <p> Searching is the act of going through a set of data to find a specific one. The most basic form of searching is 
   the sequential search. This iterates through the list, comparing each value to the target value. For example, the method
 below takes an array and target value of object type E and performs sequential search: </p> 
-  <img src="sequential search.png" alt="method for sequential search" width = 500px length = 160px> 
-  <p> The average number of comparisons needed if the target value is in the arary, is half of the array length. 
+  <img src="seqsearch.png" alt="method for sequential search" width = 500px length = 160px> 
+  <p> The average number of comparisons needed if the target value is in the array, is half of the array length. 
 With an array of length n, n comparisons would be needed to show the value is not in the array. This means that
 sequential search is in O(n); the time complexity of the algorithm increases linearly with the size of the
  input data. </p>
@@ -136,21 +136,39 @@ middle is recalculated, and it tries again. This continues until the target equa
 is an O(log n) algorithm. This means that run time does not significantly increase with large increases in input.
 This makes sense logically; with each iteration, half of the current search range is removed from consideration. </p>
   <h3> Sorting Basics </h3> 
-  <p> The act of sorting is rearranging the data in a list by some criteria (e.g, numerically ascending, alphabetically, 
-  numerically descending, etc).
+  <p> The act of sorting is rearranging the data in a list by some criteria (e.g, numerically ascending, alphabetically, numerically descending, etc). </p>
+  <h4> Selection sort </h4>
+  <p> One of the most basic sorting algorithms is selection sort. This checks for the maximum value among the first  n elements, where n starts as the length of the array - 1. It then swaps this largest value with the nth element; the largest element is moved to the end of the array.  It continues this, decrementing n by 1 every time, until the array has been sorted. Selection sort has the same, worst possible number of comparisons for arrays of the same length n; n(n+1)/2. It is an O(n<sup>2</sup>) algorithm. </p>
+  <h4> Insertion sort </h4>
+  <p> Another basic sorting algorithm is the insertion sort. Insertion sort, opposite to sequential sort, starts at the first element and expands to the full array. In each iteration i, it takes the (i+1)th element and sorts it into the correct location in the current range. The range then expands and this continues until the range covers the entire array. Insertion sort is an O(n<sup>2</sup>) algorithm as well. </p>
+  <h4> Other sorting algorithms </h4>
+  <p> More advanced, efficient sorting algorithms that run in O(nlogn) time include:  </p> 
+  <p> Quick sort - randomly selecting a pivot point around which to sort the array, larger values to the right and smaller values to the left. Uses quicksort to recursively sort the sub arrays to the left and right of the pivot point.  </p> 
+  <p> Merge sort - Continuously splits the array in half until it is made of arrays of length 1, then combines the subarrays in sorted order until the full array is rebuilt. </p>
   <h3> Analysis </h3> 
   <p> Searching and sorting is extremely useful in many scenarios. For example, sorting search results by relevance, sorting social media posts by most likes, 
-sorting purchases by date, and more. One of the most basic sorting algorithms is selection sort. This checks for the maximum value among the first 
-n elements, where n starts as the length of the array - 1. It then swaps this largest value with the nth element; the largest element is moved to the end of the array. 
-It continues this, decrementing n by 1 every time, until the array has been sorted. 
+sorting purchases by date, and more. </p> 
+  <p> Usually, sorting and searching algorithms are chosen for the most space and time efficient; O(n) or O(nlogn). For example, quick sort is a O(n logn) algorithm that performs best when the randomly selected pivot points split the array roughly equally in half. With a data set with 200 thousand values, quick sort would take an average of 0.05 seconds to complete sorting. In contrast, a O(n<sup>2</sup>) algorithm like insertion sort would take an average of 69.12 seconds. </p>
   <h3> Project Application </h3> 
   <h3> Common Mistakes </h3> 
+  <p> One mistake that may be made when writing a sorting algorithm is using comparison operators for numerical values (e.g, less than, greater than) when trying to sort other data types (e.g, Objects). It is important to clearly code the comparison criteria to obtain a correctly sorted list of values. </p> 
+  <p> Another potential mistake is to not use array space correctly when sorting, and write over the values in the array. Sorting algorithms commonly shift and rewrite values within the array. If not coded correctly, you may end up duplicating a value in the array and losing another. </p>
+  <p> When sorting, it can be useful to know whether the algorithm is stable or not. If an algorithm is stable, it retains the original order of equal value elements after they have been sorted. If it is unstable, the order of equal value elements may be changed after sorting. </p> 
+  <p> Finally, when working with large data sets you should keep in mind the time and space complexities of the algorithms you are using. Large data sets with inefficient algorithms may lead to a slow program. </p>
   <p> <a href="tutorial.html"> Return to top </a> </p>
   </details>
+
   <br>
-  <h1 id="5"> Unit 5 - Recursion </h1>
-  <p> </p> 
+
+  <details>
+  <summary id="5"> Unit 5 - Recursion </summary>
+  <h3> Recursion basics </h3>
+  <h3> Project Application </h3> 
+  <h3> Analysis </h3>
+  <h3> Common mistakes </h3>
+  <p> Be careful not to create an infinite recursive loop. This can be prevented by always having a base case in which the method / function stops calling recursively and returns a value. </p>
   <p> <a href="tutorial.html"> Return to top </a> </p>
+  </details>
 
 </div>
 </body>
