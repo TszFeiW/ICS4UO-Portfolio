@@ -23,6 +23,10 @@ h3 {
   text-align: left;
 }
 
+h4 {
+  font-size: 20px;
+}
+
 /* style for single lines of example code */ 
 code {
   color: #58148E;
