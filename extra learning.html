@@ -29,8 +29,8 @@ body {
   <body align = "center"> 
   <h1> Cryptography </h1> 
   <h3> Cryptography Basics </h3>
-  <p> Cryptography is the practice of writing and solving codes, algorithms to convert plaintext to ciphertext and back. Cryptography is essential to maintaining confidentiality and privacy of data on the internet. </p>
-  <p> Some basic cryptography terms include: </p> 
+  <p> Cryptography is the practice of using algorithms to alter data for the purpose of security. Cryptography is essential to maintaining confidentiality and privacy of data on the internet. </p>
+  <p> <b> Basic cryptography terms </b> </p> 
   <code> Plain Text </code>
   <p> An unencrypted message, readable by everyone who has it. </p>
   <code> Cipher Text </code>
@@ -42,7 +42,40 @@ body {
   <code> Key </code>
   <p> An alphanumeric character, string of characters, or symbol used in an algorithm to encrypt and decrypt text. </p>
   <code> Hash </code>
-  <p> A type of algorithm that converts a string of input to a fixed length output based on the data in the string. </p>
+  <p> A type of algorithm that converts a string of input to a fixed length output based on the data in the string. This string is the has value which is commonly used to make sure no changes to the data have been made in transfer as changes to the data will change the hash value. </p>
+  <code> Cipher </code>
+  <p> Any algorithm to encrypt or decrypt data via a defined procedure. </p>
+  <code> Symmetric Key Cryptography </code>
+  <p> Also known as Secret Key cryptography, symmetric key cryptography is an encryption in which the sender and receiver of a receiver share a common key; a "symmetric" key. As they tend to have a smaller key size, symmetric key algorithms require less space and have faster transmission. This means they are usually better for large amounts of information. However, they require all parties having access to the key. Some common symmetric encryption algorithms include AES, DES, RC4, and Blowfish. </p>
+  <p> The Data Encryption Standard uses a 56 bit key to map a 64 bit input block of plaintext to a 64 bit output block of ciphertext. As 56 bits is relatively small for modern computing power, the Triple DES is an alternative implementation of DES that uses a longer key length. Another very common algorithm is the Advanced Encryption Standard (the AES-256 is used by the U.S government). AES ciphers have a 128 bit block size. Different versions of AES use key sizes of 128, 192, or 256. The AES has now largely replaced the DES due to its far greater security. </p>
+  <p> While symmetric key algorithms are simple and fast, having to securely exchange the key to all parties can pose a challenge. If an unwelcome third party intercepted the key, all encrypted data would be compromised. This is where Asymmetric Key Cryptography comes in handy. </p>
+  <code> Asymmetric Key Cryptography </code>
+  <p> Also known as Public Key cryptography, asymmetric key cryptography makes use of both a public and a private key. The public key encrypts data while the private key decrypts data. Asymmetric Key Cryptography was invented by Whitfield Diffie and Martin Hellman in 1975. Named for its creators, the Diffie-Hellman algorithm is a key exchange protocl that allows parties to exchange a shared secret (key) without literally exchanging it over the internet. </p>
+  <h3> RSA Algorithm </h3>
+  <p> A common asymmetric algorithm is the RSA algorithm (named for its creators). RSA is used in e-commerce protocols. The RSA algorithm makes use of 4 steps. </p>
+  <p> <b> 1. Key generation </b> </p>
+  <p> Two (large) prime numbers <code>p</code> and <code>q</code> are randomly chosen. These will be secret. The product of <code>p</code> and <code>q</code>, lets call it <code>n</code>, is used as the modulus of the public and private keys. The length of <code>n</code> in bits is the key length. The Carmichael's totient function <code>λ(n)</code>, aka the least common multiple of (p-1) and (q-1) is found. Note that n is public, but the Carmichael's totient function <code>λ(n)</code> is private.</p> 
+  <p> An integer <code>e</code> between 1 and <code>λ(n)</code> that is coprime to <code>λ(n)</code> is chosen. A commonly chosen value for <code>e</code> is 65 537. Let <code>d</code> be the modular multiplicative inverse of <code>e (mod λ(n))</code>; the product of <code>d</code> and <code>e</code> is congruent to <code>1 mod λ(n)</code>. <code>d</code> is the private key exponent. Once <code>d</code> has been computed, <code>p</code>, <code>q</code>, and <code>λ(n)</code> no longer have a use. <code>n</code> and <code>e</code> are used in the public key. </p>
+  <p> <b> 2. Key distribution </b> </p> 
+  <p> To let another party send an encrypted message to you, they must possess your public key (composed of <code>m</code> and <code>e</code>). This is key distribution. </p>
+  <p> <b> 3. Encryption </b> </p>
+  <p> To send a message, turn the plaintext into an integer <code>m</code> such that <code>m</code> is between 0 (inclusive) and <code>n</code> (exclusive) using some mutually agreed protocol. The ciphertext can then be computed using your public key (<code>e</code>). This uses the formula: </p>
+  <code class="i"> c ≡ m<sup>e</sup> (mod n) </code>
+  <p> The ciphertext is then sent to you to decrypt. </p>
+  <p> <b> 4. Decryption </b> </p> 
+  <p> You can use the private key exponent <code>d</code> to compute <code>m</code> using the formula: </p>
+  <code class="i"> c<sup>d</sup> ≡ (m<sup>e</sup>)<sup>d</sup> (mod n) </code> 
+  <p> By reversing the algorithm used to turn the plaintext into an integer, you can then use <code>m</code> to obtain the original text. </p>
+  <h3> RSA encryption algorithm in Java </h3>
+  <p> Key generation: </p> 
+  <img src="key generation.png" alt="values of keys"> 
+  <p> Note that in practice, setting p to 17,  q to 31, and e to 3 is a horrible idea and they should be much larger. Their small size is for the purpose of being able to run the program. The methods used to find lcm (using gcd) and the modular multiplicative inverse are: </p>
+  <img src="rsa methods.png" alt="methods used for calculating lcm, gcd, and mmi">
+  <p> Encryption: </p>
+  <img src="encryption.png">
+ <p> The method to convert the message into an integer value is fairly simple and not regular practice: </p>
+ <img src="convert to num.png">
+ <p> To decrypt the ciphertext, reverse the process that was used to encrypt it. </p>
 </div>
 </body>
 
