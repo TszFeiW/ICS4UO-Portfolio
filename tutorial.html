@@ -48,29 +48,29 @@ body {
   <p> Note that variables and methods of an object can be accessed using dot notation, writing the name of the reference variable, a period, and then the name of the variable or method you are accessing. </p>
   <img src="methods and attributes.png" alt="methods and attributes">
   <h3> Creating Objects </h3> 
-  <p> The basic method called whenever an object of a class created is its <span style="color:#58148E"> constructor</span>. Constructors have the same name as the class and are usually used to initialize instance variables with its given parameters. If no constructors are declared in a class, Java will use the default constructor with no parameters when an object of the class is created. A class can have overloaded constructors– constructors with different parameters. For example, the following methods can be constructors for a DolphinIce class: </p> 
+  <p> The basic method called whenever an object of a class created is its <span class="code"> constructor</span>. Constructors have the same name as the class and are usually used to initialize instance variables with its given parameters. If no constructors are declared in a class, Java will use the default constructor with no parameters when an object of the class is created. A class can have overloaded constructors– constructors with different parameters. For example, the following methods can be constructors for a DolphinIce class: </p> 
   <img src="constructors.png" alt="constructors for a DolphineIce class">
   <p> To declare an object, write the class name and the reference variable name, just like with declaring String variables. To initialize the object, you must use the "new" keyword and call the constructor of the class. For example, the following code creates 2 objects of the DolphinIce class: </p>
   <img src="creating dolphins.png" alt="creating objects of dolphins">
   <h3> Inheritance and Polymorphism </h3>
   <p> Inheritance is a way for classes to extend other classes, to be subclasses of a superclass. For example, the following diagram shows an inheritance tree: </p>
   <img src="inheritance tree.png" alt="visual tree of inheritance for musical instruments" width=500px length=300px>
-  <p> The arrows represents an <span style="color:#58148E"> IS-A(n) </span> relationship of inheritance; strings is a subclass of instruments and violin is a subclass of strings. </p>
-  <p> A <span style="color:#58148E"> Has-A </span> relationship denotes the relationship when an instance of one class is used in another class. For example, if an instance of the class Fingerboard is used in Violin, the Violin Has-A fingerboard. </p> 
-  <p> Note that a subclass can only extend one superclass, but a superclass can have as many subclasses as necessary. When a class extends a superclass, it inherits all public methods from the superclass (not private methods). For example, if the Strings class has a public method called <span style="color:#58148E"> TakeOutOfCase()</span>, that will be inherited and usable by the Violin subclass. </p>
+  <p> The arrows represents an <span class="code"> IS-A(n) </span> relationship of inheritance; strings is a subclass of instruments and violin is a subclass of strings. </p>
+  <p> A <span class="code"> Has-A </span> relationship denotes the relationship when an instance of one class is used in another class. For example, if an instance of the class Fingerboard is used in Violin, the Violin Has-A fingerboard. </p> 
+  <p> Note that a subclass can only extend one superclass, but a superclass can have as many subclasses as necessary. When a class extends a superclass, it inherits all public methods from the superclass (not private methods). For example, if the Strings class has a public method called <span class="code"> TakeOutOfCase()</span>, that will be inherited and usable by the Violin subclass. </p>
   <h3> Rules </h3>
   <p> For a superclass constructor to be used in the constructor of a subclass, call super() in the first line of the constructor. Any of the superclass constructors can be called this way. If no constructors are called in the first line, the default constructor with no parameters is automatically called. To avoid errors, define the no argument constructor in the superclass. </p>
   <p> Instance variables (attributes) should be declared as private so that they are not directly accessible by subclasses. For a subclass to access the instance variables, use setter and getter methods. Note that a subclass can have its own instance variables that are inaccessible by the superclass. </p>
   <h3> Polymorphism </h3>
   <p> When a parent and child class have the same method (name and parameters), one of these methods will be overridden to run the other. This ability of the method executed to change depending on the object type is called polymorphism; the ability to take many forms. Note that this is different from method overloading, as if the methods have the same name but different parameters they will be differentiated and no overriding takes place. </p>
-  <p> By default, methods from subclasses override methods from the parent class. To call a method in the parent class that would be overridden, use the super keyword. For example, if the Violin and Strings classes both have the method <span style="color:#58148E"> public void playScales()</span>, to override the method from the subclass Violin use: </p>
-  <code> super.playScales(); </code>
+  <p> By default, methods from subclasses override methods from the parent class. To call a method in the parent class that would be overridden, use the super keyword. For example, if the Violin and Strings classes both have the method <span class="code"> public void playScales()</span>, to override the method from the subclass Violin use: </p>
+  <code class="i"> super.playScales(); </code>
   <p> Another example of polymorphism is assigning an Object of a subclass to a superclass reference variable. To demonstrate this, see that the following code would be valid: </p> 
-  <code> Strings s = new Violin(); </code>
+  <code class="i"> Strings s = new Violin(); </code>
   <p> This is because Violin is a subclass of Strings and thereby a Violin IS-A String instrument. Note that only methods that are defined in the superclass can be accessed via reference variable s (if Violin has the same method, it will still automatically override the one in Strings). To access methods in the Violin class but not the Strings class, downcast s into a Violin: 
-  <code> ((Violin s).reString(); </code>
+  <code class="i"> ((Violin s).reString(); </code>
   <p> In contrast, the code below would not be valid. This is because a String instrument Is NOT A Violin: </p>
-  <code> Violin v = new Strings(); </code>
+  <code class="i"> Violin v = new Strings(); </code>
   <h3> Abstract classes and Interfaces </h3>
   <p> An Abstract class is a class where at least one method is abstract. This means the method has its name, return type, public/ private, and parameters defined but no implementation. Abstract classes consist of abstract and non-abstract methods and can be used as templates for other classes. </p>
   <p> You cannot create an object of an abstract class. An abstract class can, however, have constructors to be called from subclasses. For example, the following is an abstract class template for a 2D shape: </p>
@@ -80,7 +80,7 @@ body {
   <p> Instead of extending interfaces, a class can implement an interface. A concrete (non-abstract) class that implements an interface must implement all the methods in the interface. Unlike extending an abstract class, a class can implement multiple interfaces. Each interface implemented provides a secondary data type to objects of that class. Thus, you can assign an object of a subclass to a reference variable of an interface. For example, the following code defines an interface "Music": </p>
   <img src="interface music.png" alt="interface for music">
   <p> As polymorphism applies to interfaces, this statement is valid between "Music" and a class "Classical" that implements "Music": </p>
-  <code> Music m = new Classical(); </code>
+  <code class="i"> Music m = new Classical(); </code>
   <h3> Project Application </h3>
   <h3> Analysis </h3>
   <p> Inheritance allows the use of a general class to define more specific classes. As these subclasses inherit the properties of the general class, well designed superclasses can reduce the repetitiveness and increase the organization of the code. </p> 
@@ -98,33 +98,33 @@ body {
   <summary id="2"> Unit 2 - Arrays </summary>
   <h3> Introduction to Arrays </h3>
   <p> Arrays are consecutive blocks of memory that store the same type of data. 
-For example, a int array of size 10 holds up to 10 integers. The value(s) in one location in memory  within the array is called an element. The position of the element within the array is called the index with the first element being 0. Unlike Strings, the length of an array is not a callable method. Instead, it is a public field in the array object that can be read with <span style="color:#58148E"> array.length</span>. Again, unlike Strings, the length of an array cannot be changed after initialization. </p> 
+For example, a int array of size 10 holds up to 10 integers. The value(s) in one location in memory  within the array is called an element. The position of the element within the array is called the index with the first element being 0. Unlike Strings, the length of an array is not a callable method. Instead, it is a public field in the array object that can be read with <span class="code"> array.length</span>. Again, unlike Strings, the length of an array cannot be changed after initialization. </p> 
   <h3> Analysis </h3>
   <p> Arrays are useful when storing a plural number of related values. Each value no longer requires a unique variable, but they can be refered to by their index in the one array. This saves space in the code, increases readability, and increases ease of using and manipulating the values within the array. In an array, if you wanted to apply an operation on every 1st, 2nd, 3rd, etc element, you could iterate through the array applying that operation rather than needing to write a line of code for every element being used if they were separate variables. Finally, for ordered arrays, having elements available by index allows for easier access to the desired data and sorting elements. </p>
   <h3> Coding with Arrays </h3> 
   <p> You can initialize an array 'Arr' of data type 'Type' and size 'size' with the statement: </p>
-  <code> Type[] arr = new Type[size]; </code>
+  <code class="i"> Type[] arr = new Type[size]; </code>
   <p> You can also initialize the array in the same line by stating the contents inside curly braces and separated by commas. Note that if you choose to initialize an array this way, the number of values within the curly braces is the length of the array. No more values can be added; they can only change elements currently in the array. For example, if you want to create an array of integers from 1 to 5, you could declare and initialize it in the same line and the size of the array is automatically set to 5: </p> 
-  <code> int[] arr = {1, 2, 3, 4, 5}; </code>
+  <code class="i"> int[] arr = {1, 2, 3, 4, 5}; </code>
   <p> It is also possible to declare an array without initializing it. For example, declaring an string arr with the code below: </p> 
-  <code> String[] lines; </code> 
+  <code class="i"> String[] lines; </code> 
   <p> Note that if you initialize the array without giving the elements in curly braces, all elements are initialized to a default value. This is 0 for numbers, false for booleans, and null for objects. If the array type is an object, the array holds references to objects which cannot be used until they are initialized.  </p>
-  <p> An index is referred to in square brackets after the array name. The element at index n in array 'arr' can be accessed by writing <span style="color:#58148E"> arr[n] </span>. 
-The index can be any int variable within the length of the array. This means <span style="color:#58148E"> arr[n-2] </span> and <span style="color:#58148E"> arr[(int)(Math.random()*10)+1] </span> are both valid assuming they are not out of bounds.      </p> 
+  <p> An index is referred to in square brackets after the array name. The element at index n in array 'arr' can be accessed by writing <span class="code"> arr[n] </span>. 
+The index can be any int variable within the length of the array. This means <span class="code"> arr[n-2] </span> and <span class="code"> arr[(int)(Math.random()*10)+1] </span> are both valid assuming they are not out of bounds.      </p> 
   <h3> Arrays and Methods </h3> 
   <p> Arrays can be passed to methods similarly to variables of ints, doubles, etc. However, when passing an array to a method you are passing a reference to its location in memory rather than a copy of its values. This means the elements of the array can be changed within the method, unlike with primitive data types. </p> 
   <p> Methods can also have an array as their return type. Like passing arrays to methods, returning an array returns a reference to its location in memory. </p>
   <h3> 2D Arrays </h3> 
   <p> A 2 dimensional array is an array in which each element is a 1D array. It has two indices, one for rows and one for columns. Each row is a different section of consecutive locations in memory. They are commonly used to represent tables, the coordinate plan, tiled game boards such as in chess, and more. You can write 2D arrays similarly to writing a one dimensional one– just with two square brackets for each dimension: </p>
-  <code> int[][] chessboard = new int[64][64]; </code>
+  <code class="i"> int[][] chessboard = new int[64][64]; </code>
   <p> To initialize a 2D array with the values inside, separate the elements in different rows into different sets of curly braces and envelop all the rows between 2 curly braces. For example, the code below initializes a grid of tic-tac-toe where X wins: </p> 
-  <code> char[][] tictactoe = {{O, X, O}, {X, X, O}, {O, X, X}}; </code> 
-  <p> The length of a 2D array 'arr' (the number of arrays / rows it contains) is <span style="color:#58148E"> arr.length</span>. The length of the nth row, aka the number of columns in that row, in a 2D array is <span style="color:#58148E"> arr[n].length</span>. Note that the length of each row does not have to be constant. An array in which different rows have different lengths is a "ragged" array. You can do this by initializing each row separately or by using curly braces method to initialize the array. For example, the code below initializes a ragged array composed of the heights of flowers in each row of a garden: </p>
-  <code> double[][] garden = {{1.0, 1.5, 2.0}, {0.5, 1.0}, {1.0, 2.5, 3.0, 1.5}}; </code> 
+  <code class="i"> char[][] tictactoe = {{O, X, O}, {X, X, O}, {O, X, X}}; </code> 
+  <p> The length of a 2D array 'arr' (the number of arrays / rows it contains) is <span class="code"> arr.length</span>. The length of the nth row, aka the number of columns in that row, in a 2D array is <span class="code"> arr[n].length</span>. Note that the length of each row does not have to be constant. An array in which different rows have different lengths is a "ragged" array. You can do this by initializing each row separately or by using curly braces method to initialize the array. For example, the code below initializes a ragged array composed of the heights of flowers in each row of a garden: </p>
+  <code class="i"> double[][] garden = {{1.0, 1.5, 2.0}, {0.5, 1.0}, {1.0, 2.5, 3.0, 1.5}}; </code> 
   <h3> Project application </h3> 
   <p> balhlbahblah </p>
   <h3> Common mistakes </h3> 
-  <p> If trying to access an element whose index is negative or greater than 'length of the array - 1', Java interpreter will throw the <span style="color:#58148E"> ArrayIndexOutOfBoundsException </span> at run time. This may occur when iterating through an array without being careful of the index bounds. Another common mistake is attempting to access an object element that has not been initialized. Doing this will result in a <span style="color:#58148E"> NullPointerException</span>, as the value being accessed is null. Some people may also forget that array indexes start at 0 and not 1. This means the first element is index 0, the second is index 1, and so on until the nth element is index n-1. Finally, it's important to remember that the length of an array is an attribute that is read with <span style="color:#58148E"> array.length </span> and not the <span style="color:#58148E"> array.length() </span> used for Strings. </p> 
+  <p> If trying to access an element whose index is negative or greater than 'length of the array - 1', Java interpreter will throw the <span class="code"> ArrayIndexOutOfBoundsException </span> at run time. This may occur when iterating through an array without being careful of the index bounds. Another common mistake is attempting to access an object element that has not been initialized. Doing this will result in a <span class="code"> NullPointerException</span>, as the value being accessed is null. Some people may also forget that array indexes start at 0 and not 1. This means the first element is index 0, the second is index 1, and so on until the nth element is index n-1. Finally, it's important to remember that the length of an array is an attribute that is read with <span class="code"> array.length </span> and not the <span class="code"> array.length() </span> used for Strings. </p> 
 
   <p> <a href="tutorial.html"> Return to top </a> </p>
   </details>
@@ -136,9 +136,9 @@ The index can be any int variable within the length of the array. This means <sp
   <h3> Introduction and using ArrayLists </h3>
   <p> ArrayLists are Objects that can be important using the java.util package. They are similar to arrays, with a key difference being their sizes are dynamic. This means elements can be added or removed from arraylists as necessary. Arraylists, similarly to arrays, store only one datatype. This is written in angled brackets in the declaration. </p> 
   <p> Additionally, they can only hold objects– not primitive data types. If using primitive data types like ints and doubles, either use a regular array or convert them into Integer or Double which are objects. Conversion from the primitive data type to an object is automatic for elements being inserted into the arraylist and this is known as autoboxing.  The code to declare an arraylist of type 'E' and name 'arr' is: </p>
-  <code> ArrayList<E> arr = new ArrayList<E>(); </code>
+  <code class="i"> ArrayList<E> arr = new ArrayList<E>(); </code>
   <p> The capacity of the array is the length of the array internally storing the values inside the arraylist. By default this is 10, but it can also be set during the creation of an arraylist by stating the capacity between the parenthesis: </p>
-  <code> ArrayList<E> arr = new ArrayList <E>(int capacity); </code>
+  <code class="i"> ArrayList<E> arr = new ArrayList <E>(int capacity); </code>
   <p> After initializing the array, common arraylist methods that can be used on 'arr' include: </p>
   <img src="common arraylist methods.png" alt="Common arraylist methods">
   <p> Note that arraylists have a default toString() method that prints the contents of the arraylist. Additionally, when the capacity has run out of space it is automatically doubled by allocating a larger array and copying the values. </p>
@@ -149,8 +149,8 @@ The index can be any int variable within the length of the array. This means <sp
   <h3> Project Application </h3> 
   <p> description stuff </p>
   <h3> Common Mistakes </h3> 
-  <p> It's important to remember to import <span style="color:#58148E"> java.util.* </span> in a class that uses arraylists, otherwise they cannot be used. </p>
-  <p> The <span style="color:#58148E"> IndexOutOfBoundsException </span> will be thrown if you try to access or add an element at an index that is either negative or larger than the last index of the arraylist. </p>
+  <p> It's important to remember to import <span class="code"> java.util.* </span> in a class that uses arraylists, otherwise they cannot be used. </p>
+  <p> The <span class="code"> IndexOutOfBoundsException </span> will be thrown if you try to access or add an element at an index that is either negative or larger than the last index of the arraylist. </p>
   <p> Note that removing an element x from an arraylist reduces the size of the array and causes all elements to the right of x to shift left. This means regular implementation of a for loop to remove elements from an arraylist will not work; if multiple consecutive elements need to be removed, only every other will be removed as the next element will take the index of the element that was just removed and go unnoticed. As the size after the removals is less than the size of the array in at the start, the for loop will also go out of bounds. </p>
   <p> <a href="tutorial.html"> Return to top </a> </p>
   </details>
@@ -224,7 +224,7 @@ sorting purchases by date, and more. </p>
   <p> The method on the left correctly returns a reversed string, as in each call the first character in the string is added to the back of the remaining characters. The method on the right, however, returns the same string that was initially passed to it. This is because the character at the front of the string is added back to the front rather than after the remainder of the string. </p>
   <p> <a href="tutorial.html"> Return to top </a> </p>
   </details>
-
+  
 </div>
 </body>
 
