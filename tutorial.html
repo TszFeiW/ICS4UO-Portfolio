@@ -45,22 +45,27 @@ body {
 <p> Running the Java application creates objects of classes and allows for use of the methods within the objects. For example, one dolphin ice mold class could be used as the template to create many dolphin ice cube objects. </p>
   <p> A static characteristic in a class is a variable that is shared across all objects of the class; there is only 1 copy of it. This is useful when the variable is a common property, for example the maximum class size in a university. Static methods can be executed without creating an object of the class, as it is part of the class definition itself. </p>
   <p> Following the dolphin ice cubes example, the following shows examples of instance variables and getter / setter methods used by the class: </p> 
-  <p> Note that variables and methods of an object can be accessed using dot notation, writing the name of the reference variable, a period, and then the name of the variable or method you are accessing. </p>
   <img src="methods and attributes.png" alt="methods and attributes">
+  <p> Note that variables and methods of an object can be accessed using dot notation, writing the name of the reference variable, a period, and then the name of the variable or method you are accessing. </p>
+  <br>
   <h3> Creating Objects </h3> 
   <p> The basic method called whenever an object of a class created is its <span class="code"> constructor</span>. Constructors have the same name as the class and are usually used to initialize instance variables with its given parameters. If no constructors are declared in a class, Java will use the default constructor with no parameters when an object of the class is created. A class can have overloaded constructors– constructors with different parameters. For example, the following methods can be constructors for a DolphinIce class: </p> 
   <img src="constructors.png" alt="constructors for a DolphineIce class">
   <p> To declare an object, write the class name and the reference variable name, just like with declaring String variables. To initialize the object, you must use the "new" keyword and call the constructor of the class. For example, the following code creates 2 objects of the DolphinIce class: </p>
   <img src="creating dolphins.png" alt="creating objects of dolphins">
+    <p> The first line of code creates a DolphinIce object with a reference variable of d1 and an ice cube volume of 6.0. The second line creates a DolphinIce object with reference variable d2, an ice cube volume of 3.0, and 12 ice cubes. 
+    <br>
   <h3> Inheritance and Polymorphism </h3>
   <p> Inheritance is a way for classes to extend other classes, to be subclasses of a superclass. For example, the following diagram shows an inheritance tree: </p>
   <img src="inheritance tree.png" alt="visual tree of inheritance for musical instruments" width=500px length=300px>
   <p> The arrows represents an <span class="code"> IS-A(n) </span> relationship of inheritance; strings is a subclass of instruments and violin is a subclass of strings. </p>
   <p> A <span class="code"> Has-A </span> relationship denotes the relationship when an instance of one class is used in another class. For example, if an instance of the class Fingerboard is used in Violin, the Violin Has-A fingerboard. </p> 
   <p> Note that a subclass can only extend one superclass, but a superclass can have as many subclasses as necessary. When a class extends a superclass, it inherits all public methods from the superclass (not private methods). For example, if the Strings class has a public method called <span class="code"> TakeOutOfCase()</span>, that will be inherited and usable by the Violin subclass. </p>
+  <br>
   <h3> Rules </h3>
   <p> For a superclass constructor to be used in the constructor of a subclass, call super() in the first line of the constructor. Any of the superclass constructors can be called this way. If no constructors are called in the first line, the default constructor with no parameters is automatically called. To avoid errors, define the no argument constructor in the superclass. </p>
   <p> Instance variables (attributes) should be declared as private so that they are not directly accessible by subclasses. For a subclass to access the instance variables, use setter and getter methods. Note that a subclass can have its own instance variables that are inaccessible by the superclass. </p>
+  <br>
   <h3> Polymorphism </h3>
   <p> When a parent and child class have the same method (name and parameters), one of these methods will be overridden to run the other. This ability of the method executed to change depending on the object type is called polymorphism; the ability to take many forms. Note that this is different from method overloading, as if the methods have the same name but different parameters they will be differentiated and no overriding takes place. </p>
   <p> By default, methods from subclasses override methods from the parent class. To call a method in the parent class that would be overridden, use the super keyword. For example, if the Violin and Strings classes both have the method <span class="code"> public void playScales()</span>, to override the method from the subclass Violin use: </p>
@@ -71,6 +76,7 @@ body {
   <code class="i"> ((Violin s).reString(); </code>
   <p> In contrast, the code below would not be valid. This is because a String instrument Is NOT A Violin: </p>
   <code class="i"> Violin v = new Strings(); </code>
+  <br>
   <h3> Abstract classes and Interfaces </h3>
   <p> An Abstract class is a class where at least one method is abstract. This means the method has its name, return type, public/ private, and parameters defined but no implementation. Abstract classes consist of abstract and non-abstract methods and can be used as templates for other classes. </p>
   <p> You cannot create an object of an abstract class. An abstract class can, however, have constructors to be called from subclasses. For example, the following is an abstract class template for a 2D shape: </p>
@@ -79,8 +85,10 @@ body {
   <p> Interfaces are similar to abstract classes, except all its methods must be abstract and it cannot have attributes. An interface can also not have constructors. Because all of the methods in an interface are public and abstract, only the return type, method name, and parameters must be specified. </p> 
   <p> Instead of extending interfaces, a class can implement an interface. A concrete (non-abstract) class that implements an interface must implement all the methods in the interface. Unlike extending an abstract class, a class can implement multiple interfaces. Each interface implemented provides a secondary data type to objects of that class. Thus, you can assign an object of a subclass to a reference variable of an interface. For example, the following code defines an interface "Music": </p>
   <img src="interface music.png" alt="interface for music">
-  <p> As polymorphism applies to interfaces, this statement is valid between "Music" and a class "Classical" that implements "Music": </p>
+  <p> As polymorphism applies to interfaces, this statement would be valid: </p>
   <code class="i"> Music m = new Classical(); </code>
+  <p> Note that this only works if "Classical" implements "Music". </p>
+  <br>
   <h3> Project Application </h3>
   <p> <b> Creating Software objects </b> </p> 
   <p> In this assignment, I created an array of Student objects, combining the syntax for array creation and for 
@@ -91,10 +99,11 @@ creating new objects. </p>
   <p> I then tested the methods of the classes using the prevously created objects: </p>
   <img src="testing objects.png">
   <p> This project was an exercise in creating new software objects.</p>
- 
+   <br>
   <h3> Analysis </h3>
   <p> Inheritance allows the use of a general class to define more specific classes. As these subclasses inherit the properties of the general class, well designed superclasses can reduce the repetitiveness and increase the organization of the code. </p> 
   <p> Abstract classes are useful when there are many shared methods between related classes. Interfaces are useful when their is a shared behavior between amny unrelated classes, or it would be useful for multiple interfaces to be used. </p>
+  <br>
   <h3> Common Mistakes </h3>
   <p> Potential mistakes related to accessibility are declaring instance variables as public, attempting and access private instance variables / methods. </p>
   <p> Mistakes that can be made in inheritance include assigning a parent object to a child reference variable, calling super() not in the first line of a subclass constructor, trying to extend multiple superclasses, and forgetting that subclass methods will override superclass methods without the super keyword. </p>
@@ -109,8 +118,7 @@ creating new objects. </p>
   <h3> Introduction to Arrays </h3>
   <p> Arrays are consecutive blocks of memory that store the same type of data. 
 For example, a int array of size 10 holds up to 10 integers. The value(s) in one location in memory  within the array is called an element. The position of the element within the array is called the index with the first element being 0. Unlike Strings, the length of an array is not a callable method. Instead, it is a public field in the array object that can be read with <span class="code"> array.length</span>. Again, unlike Strings, the length of an array cannot be changed after initialization. </p> 
-  <h3> Analysis </h3>
-  <p> Arrays are useful when storing a plural number of related values. Each value no longer requires a unique variable, but they can be refered to by their index in the one array. This saves space in the code, increases readability, and increases ease of using and manipulating the values within the array. In an array, if you wanted to apply an operation on every 1st, 2nd, 3rd, etc element, you could iterate through the array applying that operation rather than needing to write a line of code for every element being used if they were separate variables. Finally, for ordered arrays, having elements available by index allows for easier access to the desired data and sorting elements. </p>
+  <br>
   <h3> Coding with Arrays </h3> 
   <p> You can initialize an array 'Arr' of data type 'Type' and size 'size' with the statement: </p>
   <code class="i"> Type[] arr = new Type[size]; </code>
@@ -121,9 +129,11 @@ For example, a int array of size 10 holds up to 10 integers. The value(s) in one
   <p> Note that if you initialize the array without giving the elements in curly braces, all elements are initialized to a default value. This is 0 for numbers, false for booleans, and null for objects. If the array type is an object, the array holds references to objects which cannot be used until they are initialized.  </p>
   <p> An index is referred to in square brackets after the array name. The element at index n in array 'arr' can be accessed by writing <span class="code"> arr[n] </span>. 
 The index can be any int variable within the length of the array. This means <span class="code"> arr[n-2] </span> and <span class="code"> arr[(int)(Math.random()*10)+1] </span> are both valid assuming they are not out of bounds.      </p> 
+ <br>
   <h3> Arrays and Methods </h3> 
   <p> Arrays can be passed to methods similarly to variables of ints, doubles, etc. However, when passing an array to a method you are passing a reference to its location in memory rather than a copy of its values. This means the elements of the array can be changed within the method, unlike with primitive data types. </p> 
   <p> Methods can also have an array as their return type. Like passing arrays to methods, returning an array returns a reference to its location in memory. </p>
+ <br>
   <h3> 2D Arrays </h3> 
   <p> A 2 dimensional array is an array in which each element is a 1D array. It has two indices, one for rows and one for columns. Each row is a different section of consecutive locations in memory. They are commonly used to represent tables, the coordinate plan, tiled game boards such as in chess, and more. You can write 2D arrays similarly to writing a one dimensional one– just with two square brackets for each dimension: </p>
   <code class="i"> int[][] chessboard = new int[64][64]; </code>
@@ -131,8 +141,23 @@ The index can be any int variable within the length of the array. This means <sp
   <code class="i"> char[][] tictactoe = {{O, X, O}, {X, X, O}, {O, X, X}}; </code> 
   <p> The length of a 2D array 'arr' (the number of arrays / rows it contains) is <span class="code"> arr.length</span>. The length of the nth row, aka the number of columns in that row, in a 2D array is <span class="code"> arr[n].length</span>. Note that the length of each row does not have to be constant. An array in which different rows have different lengths is a "ragged" array. You can do this by initializing each row separately or by using curly braces method to initialize the array. For example, the code below initializes a ragged array composed of the heights of flowers in each row of a garden: </p>
   <code class="i"> double[][] garden = {{1.0, 1.5, 2.0}, {0.5, 1.0}, {1.0, 2.5, 3.0, 1.5}}; </code> 
+  <p> Notice that each set of curly braces within the larger curly braces represents one row, and each value in the smaller sets of curly braces represents the value in that column. </p>
+  <br>
   <h3> Project application </h3> 
-  <p> balhlbahblah </p>
+  <p> <b> Ratings Assignment </b> </p>
+  <p> In this assignment with Eric Ning, I used a 2d array in which the rows represented people and the columns in the rows represented peoples score in certain characteristics. I used Scanner to read the data of the people into the array and methods to view someones ratings: </p> 
+  <img src="ratings 1.png">
+  <br>
+  <img src="ratings 2.png">
+  <p> Additionally, I used the 2D data array in a method that returns a formatted String containing a given persons information and to read the ratings of peoples characteristics: </p> 
+  <img src="ratings 3.png">
+  <br>
+  <img src="ratings 4.png">
+  <p> The 2D array made it easier to iterate through the people, their qualities, and to compare their rating on different characteristics. In addition, it made the code much easier to read as it removed the need for many more variables / arrays. </p>
+  <br>
+<h3> Analysis </h3>
+  <p> Arrays are useful when storing a plural number of related values. Each value no longer requires a unique variable, but they can be refered to by their index in the one array. This saves space in the code, increases readability, and increases ease of using and manipulating the values within the array. In an array, if you wanted to apply an operation on every 1st, 2nd, 3rd, etc element, you could iterate through the array applying that operation rather than needing to write a line of code for every element being used if they were separate variables. Finally, for ordered arrays, having elements available by index allows for easier access to the desired data and sorting elements. </p>
+  <br>
   <h3> Common mistakes </h3> 
   <p> If trying to access an element whose index is negative or greater than 'length of the array - 1', Java interpreter will throw the <span class="code"> ArrayIndexOutOfBoundsException </span> at run time. This may occur when iterating through an array without being careful of the index bounds. Another common mistake is attempting to access an object element that has not been initialized. Doing this will result in a <span class="code"> NullPointerException</span>, as the value being accessed is null. Some people may also forget that array indexes start at 0 and not 1. This means the first element is index 0, the second is index 1, and so on until the nth element is index n-1. Finally, it's important to remember that the length of an array is an attribute that is read with <span class="code"> array.length </span> and not the <span class="code"> array.length() </span> used for Strings. </p> 
 
@@ -152,12 +177,21 @@ The index can be any int variable within the length of the array. This means <sp
   <p> After initializing the array, common arraylist methods that can be used on 'arr' include: </p>
   <img src="common arraylist methods.png" alt="Common arraylist methods">
   <p> Note that arraylists have a default toString() method that prints the contents of the arraylist. Additionally, when the capacity has run out of space it is automatically doubled by allocating a larger array and copying the values. </p>
+  <br>
   <h3> Analysis </h3>
   <p> ArrayLists have the advantage over arrays in any scenario where you have a fluctuating number of elements. Having a dynamic size allows for greater flexibility and is useful in, for example, storing a shelf of books at a library where books are borrowed and returned. </p>
   <p> Arraylists also offer convenience in the form of built-in higher level operations such as searching, removing, and adding elements. As part of the Java Collections Framework, arraylists have access to a wide variety of methods that increase their functionality (e.g, .contains). These factors make arraylists good for ease of use. </p>   
   <p> On the other hand, arraylists are usually a less efficient option than arrays, especially for giving direct access to an element. This is because arrays have a fixed size and allow for direct memory allocation, whereas arraylists require checking size, resizing, and datacopying when the capacity is reached. Arraylists can also only be single dimensional. For any grid, table, or other multi dimensional data set, arraylists cannot be used. </p> 
+  <br>
   <h3> Project Application </h3> 
-  <p> description stuff </p>
+<img src="bridge 1.png">
+  <p> By turning the suit and card value into 1 integer where each card has a unique integer that can be used to calculate what the value and suit of the card was, I converted the deck of cards into a format sortable by Collections.sort(): </p>
+  <img src="bridge 2.png">
+  <p> In addition, I created a method to display the hand of one player and return the number of points in their hand by adding their 13 cards (each card is 1 character for the value + 1 character for the suit) to a separate arraylist and iterating through it, adding points depending on the values (and number of each suit) found in their deck. </p>
+  <img src="bridge 3.png">
+  <p> Arraylists were important to completing this assignment because their dynamic size allowed for easier editing via adding and removing cards from the deck and player hands. </p>
+  <p> Fun fact: I used to play Bridge a lot when I was younger </p>
+  <br>
   <h3> Common Mistakes </h3> 
   <p> It's important to remember to import <span class="code"> java.util.* </span> in a class that uses arraylists, otherwise they cannot be used. </p>
   <p> The <span class="code"> IndexOutOfBoundsException </span> will be thrown if you try to access or add an element at an index that is either negative or larger than the last index of the arraylist. </p>
@@ -185,6 +219,7 @@ and it tries again. If the target value is less, the maximum is set to the index
 middle is recalculated, and it tries again. This continues until the target equals the middle value. Binary search
 is an O(log n) algorithm. This means that run time does not significantly increase with large increases in input.
 This makes sense logically; with each iteration, half of the current search range is removed from consideration. </p>
+  <br>
   <h3> Sorting Basics </h3> 
   <p> The act of sorting is rearranging the data in a list by some criteria (e.g, numerically ascending, alphabetically, numerically descending, etc). </p>
   <h4> Selection sort </h4>
@@ -195,11 +230,20 @@ This makes sense logically; with each iteration, half of the current search rang
   <p> More advanced, efficient sorting algorithms that run in O(nlogn) time include:  </p> 
   <p> Quick sort - randomly selecting a pivot point around which to sort the array, larger values to the right and smaller values to the left. Uses quicksort to recursively sort the sub arrays to the left and right of the pivot point.  </p> 
   <p> Merge sort - Continuously splits the array in half until it is made of arrays of length 1, then combines the subarrays in sorted order until the full array is rebuilt. </p>
+  <br>
   <h3> Analysis </h3> 
   <p> Searching and sorting is extremely useful in many scenarios. For example, sorting search results by relevance, sorting social media posts by most likes, 
 sorting purchases by date, and more. </p> 
   <p> Usually, sorting and searching algorithms are chosen for the most space and time efficient; O(n) or O(nlogn). For example, quick sort is a O(n logn) algorithm that performs best when the randomly selected pivot points split the array roughly equally in half. With a data set with 200 thousand values, quick sort would take an average of 0.05 seconds to complete sorting. In contrast, a O(n<sup>2</sup>) algorithm like insertion sort would take an average of 69.12 seconds. </p>
+  <br>
   <h3> Project Application </h3> 
+  <p> <b> Country Sorting Assignment </b> </p>
+  <p> In this assignment with Eric Ning, I wrote methods to sort countries by population and alphabetically. To sort alphabetically, I iterated through the arraylist of countries and used insertion sort to compare country names lexographically (alphabetically). As in insertion sort, (1) if the element being sorted is (lexographically) less than the element to their left, the left element is shifted to the right and the intended position of the element being sorted is reduced. (2) sWhen the element to the left is less than the sorted element, this process is stopped and the element being sorted is assigned to its new location. </p>
+  <img src="sorting 1.png"> 
+  <p> To sort by population, I again used insertion sort: </p>
+  <img src="sorting 2.png">
+  <p> Sorting was important to this assignment because the assignment was to sort a list of values. Without sorting algorithms, this program would not have been possible. </p>
+  <br>
   <h3> Common Mistakes </h3> 
   <p> One mistake that may be made when writing a sorting algorithm is using comparison operators for numerical values (e.g, less than, greater than) when trying to sort other data types (e.g, Objects). It is important to clearly code the comparison criteria to obtain a correctly sorted list of values. </p> 
   <p> Another potential mistake is to not use array space correctly when sorting, and write over the values in the array. Sorting algorithms commonly shift and rewrite values within the array. If not coded correctly, you may end up duplicating a value in the array and losing another. </p>
@@ -218,18 +262,21 @@ sorting purchases by date, and more. </p>
   <img src="recursion sumdigits.png" alt="recursive method to sum digits of given integer" width=360px length=300px>
   <img src="iterative sumdigits.png" alt="iterative method to sum digits of given integer" width=380px length=300px>
   <p> In the recursive method, the base case is when N is only one digit; it returns N. The recursive case is when there is more than 1 digit. It returns the sum of the units digit of the current number and a recursive call to the remainder of the number, without the units digit. The iterative method sets the integer to be a string and iterates through each character in the string, adding that digit to the sum each time. </p> 
-  
+    <br>
   <h3> Project Application </h3> 
   <p> <b> Recursion Assignments </b> </p> 
-  <p> In this assignment, I created a recursive method called "compact" that removes all spaces from a line of text. </p>
+  <p> In this assignment, I created a recursive method called "compact" that removes all spaces from a line of text. The base case is when the string has 0 or 1 characters. There are 2 potential recursive cases. The first is when the first character of the string is a space; it must be removed. In this case, it recursively calls compact on the remainder of the string. The second is when the first character of the string is not a space. Since that means this character will be in the final result, this case returns that character + a recursive call to compact with the remainder of the string.  </p>
   <img src="recursion method.png">
-  <p> The base case is when the string has 0 or 1 characters. 
+  <p> When the second case occurs, the recursive call to compact checks the next character in the string and adds it to the final answer if it is not a space. </p>
+  <p> Recursion was useful because it provided an alternative, intuitive method to solving this problem. Additionally, it saved some space as the way I would have done it in iteration (iterating through each character to the string, adding it to a new one if it isn't a space) would have required the initialization of a new variable. The recursive method took no extra space and allowed for compact, easy to read code. </p>
+  <br>
   <h3> Analysis </h3>
   <p> Recursion can be helpful to reduce the amount of code needed for a repeated function. Recursion can also help simplify the code and can better represent some concepts than iteration. For example, the following images compare a method that takes the power of a base recursively v.s iteratively: </p>
   <img src="recursion exponentiate.png" width=555px length=360px>
   <img src="iterative exponentiate.png" width=500px length=360px>
   <p> The code to exponentiate recursively does not require any extra variables and is fairly intuitive to understand. Recursion usually has smaller code size than iteration. </p> 
   <p> On the other hand, for larger sets of data that require more recursive calls, the time complexity of recursion will be higher than that of iteration. Having to maintain and update the stack (stores data from recursive calls) causes slower execution speed and more overhead than iteration. As iteration does not call itself, it doesn't need a stack and has no overhead. An infinite loop in recursion As recursion and iteration are used in similar problems. In most cases, the solution to use is up to the programmer. A few more complex problems, however, can be solved with recursion but not iteration. Notably, traversing trees and graphs commonly use recursion. For example, searching through files that are stored in a tree of directories or a family tree. </p>
+  <br>
   <h3> Common mistakes </h3>
   <p> Be careful not to create an infinite recursive loop. If the base case takes too long to or is never reached, the "stack" that stores the data of the recursive calls will run out of space and a stack overflow occurs. This can be avoided by having a base case that will always be reached and in which the method / function returns a value. </p>
   <p> Another potential mistake is incorrectly ordering the returned values. For example, below are two implemementations of a method that is supposed to recursively reverse a string: </p> 
