@@ -30,11 +30,18 @@ h4 {
 /* style for single lines of example code */ 
 code {
   color: #58148E;
-  padding-left: 51px;
   font-size: 20px;
   font-family: Lustria, Hind Madurai, sans-serif;
 }
 
+code.i {
+  color: #58148E;
+  font-size: 20px;
+  padding-left: 51px;
+  font-family: Lustria, Hind Madurai, sans-serif;
+}
+
+/* styles the navbar */
 .navbar {
   overflow: hidden; 
   background-color: #58148E; /* Dark purple */
